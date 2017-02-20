@@ -17,14 +17,22 @@ coverage
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
 
+# ternjs configuration
+.tern-project
+
 # node-waf configuration
 .lock-wscript
 
 # Compiled binary addons (http://nodejs.org/api/addons.html)
 build/Release
 
-# Dependency directory
+# Dependency directories
 node_modules
+jspm_packages
+bower_components
+
+# environment variables
+.env
 
 # Optional npm cache directory
 .npm

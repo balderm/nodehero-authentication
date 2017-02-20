@@ -1,0 +1,21 @@
+{
+  "name": "@risingstack/nodehero-authentication",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "balderm <black7b@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/balderm/nodehero-authentication",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap.native": "^2.0.5",
+    "bootstrap-css-only": "^3.3.7"
+  }
+}

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "debug": "node --inspect index.js"
   },
   "repository": {
     "type": "git",
@@ -20,9 +21,10 @@
   "homepage": "https://github.com/RisingStack/nodehero-authentication#readme",
   "dependencies": {
     "body-parser": "1.15.1",
-    "connect-redis": "3.0.2",
+    "dotenv": "^4.0.0",
     "express": "4.13.4",
     "express-handlebars": "3.0.0",
+    "express-mysql-session": "^1.2.0",
     "express-session": "1.13.0",
     "passport": "0.3.2",
     "passport-local": "1.0.0"
