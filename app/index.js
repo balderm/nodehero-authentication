@@ -1,3 +1,6 @@
+// load .env config file into env
+require('dotenv').config()
+
 const path = require('path')
 const express = require('express')
 const exphbs = require('express-handlebars')
@@ -5,11 +8,10 @@ const bodyParser = require('body-parser')
 const passport = require('passport')
 const session = require('express-session')
 const MySqlStore = require('express-mysql-session')(session)
+const db = require('./model/databaseConnection')
 
 const app = express()
 
-// load .env config file into env
-require('dotenv').config()
 // init bodyParser
 app.use(bodyParser.urlencoded({extended: false}))
 // init auth
@@ -21,10 +23,12 @@ app.use(session({
     port: process.env.DB_PORT,
     user: process.env.DB_USER,
     password: process.env.DB_PWD,
-    database: process.env.DB_NAME
-//    , createDatabaseTable: true
-  }),
-  secret: process.env.SESSION_SECRET,
+    database: process.env.DB_NAME, 
+    createDatabaseTable: true,
+    expiration: process.env.SESSION_EXP,
+    checkExpirationInterval: process.env.SESSION_EXP_CHECK
+  }/*, db.getConnection()*/), 
+  secret: process.env.SESSION_SECRET, 
   resave: false,
   saveUninitialized: false
 }))
@@ -42,7 +46,7 @@ app.engine('.hbs', exphbs({
 app.set('view engine', '.hbs')
 app.set('views', path.join(__dirname))
 // expose static content folder
-app.use('/', express.static('public'))
+app.use('/static', express.static('public'))
 // init modules
 require('./user').init(app)
 require('./note').init(app)

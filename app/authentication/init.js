@@ -1,15 +1,18 @@
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
-
+const db = require('./../model/databaseConnection')
 const authenticationMiddleware = require('./middleware')
 
 const user = {
   username: 'test-user',
-  password: 'test-password',
+  password: 'password',
   id: 1
 }
 
 function findUser (username, callback) {
+  
+  // db.getConnection()
+  
   if (username === user.username) {
     return callback(null, user)
   }
