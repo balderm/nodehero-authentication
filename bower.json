@@ -2,9 +2,7 @@
   "name": "@risingstack/nodehero-authentication",
   "description": "",
   "main": "index.js",
-  "authors": [
-    "balderm <black7b@gmail.com>"
-  ],
+  "authors": "",
   "license": "ISC",
   "homepage": "https://github.com/balderm/nodehero-authentication",
   "ignore": [
